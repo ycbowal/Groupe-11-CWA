@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Overlock-Regular";
+    src: url("assets/fonts/Overlock/Overlock-Regular.ttf") format("truetype");
+
+    font-family: "Berkshire";
+    src: url("assets/fonts/Berkshire_Swash/BerkshireSwash-Regular.ttf") format("truetype");
+
+    
+
+}
+@font-face {
+    font-family: "Overlock";
+    src: url("assets/fonts/Overlock/Overlock-Black.ttf") format("truetype");
+    /*
+    font-family: "Quicksand";
+    src: url("assets/fonts/quicksand/Quicksand_Book.otf") format("otf");*/
+}
+body {
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-family: "Trebuchet MS", Verdana, "Overlock";
+}
+button {
+    border-radius: 2px;
+}

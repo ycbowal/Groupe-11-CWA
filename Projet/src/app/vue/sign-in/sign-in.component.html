@@ -1,0 +1,64 @@
+<app-min-header *ngIf="!isFullyRegistered"></app-min-header>
+<div id="form-group" *ngIf="!isFullyRegistered">
+    <div>
+        <h1>S'inscrire</h1>
+    </div>
+    <div *ngIf="submitted && isAlreadyRegistered && ((mail?.valid && mail?.value.length > 0) || (tel?.valid && tel?.value.length > 0))" class="unfound-identifier validator-state">
+        <div>&#9888;</div>
+        <div>
+            <div>Un problème est survénu</div>
+            <div>
+                Il semble que l'adresse e-mail ou le numéro de télephone est déja utilisé
+                Vous avez indiqué que vous êtes nouveau, mais un compte existe déjà avec cet identifiant
+            </div> 
+        </div>
+    </div>
+    <form [formGroup]="userForm" (ngSubmit) = onSignIn()>
+        <div class="same-line-context" >
+            <input id="lastName" type="text" name="lastName" minlength="2" placeholder="Nom*" formControlName="lastName" required>
+            <input id="firstName" type="text" name="firstName" minlength="2" placeholder="Prénom*" formControlName="firstName" required>
+        </div>
+        <div class="validator-state" *ngIf="submitted && ((lastName?.invalid) || (firstName?.invalid))">
+            &#65045; Le prénom et le nom doivent comporter au moins 2 caractères chacun
+        </div>
+
+        <div class="same-line-context">
+            <input type="mail" name="mail" placeholder="Adresse e-mail" formControlName="mail">
+            <input type="tel" name="tel" placeholder="Numéro de telephone" formControlName="tel">
+        </div> 
+        <div class="validator-state" *ngIf="submitted && (tel?.pristine && mail?.pristine)">
+            &#65045; Veuillez renseigner une adresse mail ou un numéro de télephone
+        </div>
+        <div class="validator-state" *ngIf="submitted && (mail?.dirty && mail?.invalid)">
+            &#65045; L'adresse mail renseignée est incorrect.
+        </div>
+        <div class="validator-state" *ngIf="submitted && (tel?.dirty && tel?.invalid)">
+            &#65045; Le numéro de télephone renseigné est incorrect
+        </div>
+        <div class="uni-line-context">
+            <input type="password" name="password" minlength="8" placeholder="Mot de passe*" formControlName="password" required><br>
+        </div>
+        <div class="validator-state" *ngIf="submitted && password?.invalid">
+            &#65045; Le mot de passe doit comporter au moins 8 caractères.
+        </div>
+        <div class="uni-line-context">
+            <input type="password" name="retypedPassword" placeholder="Saisissez à nouveau le mot de passe*" formControlName="retypedPassword"><br>
+        </div>
+        <div class="validator-state" *ngIf="submitted && retypedPassword?.invalid">
+            &#65045; Les mots de passe doivent être identiques
+        </div>
+       
+        <button type="submit">S'inscrire</button>
+    </form>
+    <div id="connexion-mode">
+        <a routerLink="/toLogIn">Je dispose déjà d'un compte</a>
+    </div>
+</div>
+
+
+
+
+<div *ngIf="isFullyRegistered" id="confirmation">
+    <h1>Inscription réussi</h1>
+    &#9989;
+</div>

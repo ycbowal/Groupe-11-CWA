@@ -1,0 +1,92 @@
+#form-group {
+    width: 40%;
+    margin: auto;
+    font-family: "Trebuchet MS", Verdana, "Overlock";
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    .same-line-context, .uni-line-context, button {
+        margin-top: 25px;
+    }
+}
+
+input, button {
+    height: 40px;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+}
+button {
+    cursor: pointer;
+    background-color: #0B2239;
+    color: white;
+    font-weight: bold;
+    border-radius: 2px;
+}
+.same-line-context {
+    display: flex;
+    justify-content: space-between;
+    input {
+        flex: 1;
+        &:first-child {
+            margin-right: 20px;
+        }
+    }
+}
+.uni-line-context {
+    display: flex;
+    input {
+        flex: 1;
+    }
+}
+
+#connexion-mode {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+#connexion-mode a {
+    color: black;
+}
+.validator-state {
+    font-size: 1em;
+    font-weight: bold;
+    color: red;
+}
+
+.unfound-identifier {
+    padding: 10px;
+    display: flex;
+    font-size: 1em;
+    div:first-child {
+        flex: 1;
+    }
+    border: 2px solid red;
+    border-radius: 2px;;
+    div:last-child {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        color: black;
+        div:first-child {
+            font-size: 1.5 em;
+            color: red;
+            flex: 1;
+        }
+        div:last-child {
+            flex: 5;
+            text-align: justify;
+        }
+    }
+
+}
+#confirmation {
+    width: 40%;
+    font-size: 3em;
+    margin-top: 50px;
+    text-align: center;
+    margin: auto;
+}
