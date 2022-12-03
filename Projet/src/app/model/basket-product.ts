@@ -1,5 +1,5 @@
 import { ClientProduct } from "./client-product";
-export class BucketProduct {
+export class BasketProduct {
     public product!: ClientProduct;
     public nbWantedCopies!: number;
     

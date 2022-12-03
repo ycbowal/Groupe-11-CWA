@@ -1,31 +1,25 @@
-export abstract class Product {
-    public name!: string;
-    public description!: string;
-    public rate!: number;
-    public additionalInfs!: string[];
-    public id!: string;
-    public reductionRate!: number;
-    public urlImages!: string[];
-    public isNew!: boolean;
-    public isAvailable!: boolean;
-    public categories!: string[];
-    public totalNbCopies!: number;
-    public realPrice!: number;
-    public relativePrice!: number;
-    constructor(name: string, description: string, rate: number, id: string, reductionRate: number,
-        urlImages: string[], isNew: boolean, price: number, categories: string[], totalNbCopies: number, additionalInfs?: string[]) {
-        this.name = name;
-        this.description = description;
-        this.rate = rate;
-        this.additionalInfs = (additionalInfs)?additionalInfs:[];
-        this.id = id;
-        this.reductionRate = reductionRate;
-        this.urlImages = urlImages;
-        this.isNew = isNew;
-        this.realPrice = price;
-        this.categories = categories;
-        this.totalNbCopies = totalNbCopies;
-        this.relativePrice = this.realPrice-(this.realPrice*this.reductionRate/100);
-        this.relativePrice = (this.relativePrice >= 0)?this.relativePrice:0;
+export class Product {
+
+    
+    private _relativePrice!: number;
+    constructor(private _id: string, private _name: string, private _description: string, private _realPrice: number, private _totalNbCopies: number,
+        private _urlMainImage: string, private _urlImages: string[] = [], private _categories: string[] = [], private _additionalInfs: string[] = [],
+        private _reductionRate: number=0, private _isNew: boolean = true, private _rate: number = 5, private _isAvailable=true) {
+      
+        this._relativePrice = this.realPrice-(this.realPrice*this.reductionRate/100);
     }
+
+    get id(): string { return this._id; }
+    get name(): string { return this._name; }
+    get description(): string { return this._description; }
+    get realPrice(): number { return this._realPrice; }
+    get reductionRate(): number { return this._reductionRate; }
+    get rate(): number { return this._rate; }
+    get urlMainImage(): string { return this._urlMainImage; }
+
+    set name(name: string) { this._name = name; }
+    set description(description: string) { this._description = description; }
+    set realPrice(realPrice: number) { this._realPrice = realPrice; }
+    set reductionRate(reductionRate: number) { this._reductionRate = reductionRate; }
+    set rate(rate: number) { this._rate = rate; }
 }

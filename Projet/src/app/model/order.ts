@@ -1,10 +1,10 @@
-import { Bucket } from "./bucket";
+import { Basket } from "./basket";
 
 export class Order {
     private date!: Date;
-    private bucket!: Bucket;
+    private bucket!: Basket;
     private id!: string;
-    constructor(bucket: Bucket, id: string, date?: Date) {
+    constructor(bucket: Basket, id: string, date?: Date) {
         this.id = id;
         this.bucket = bucket;
         this.date = (date)?date:(new Date());

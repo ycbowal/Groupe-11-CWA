@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Client } from '../model/client';
 import { DeepGlobalVariablesService } from './deep-global-variables.service';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout'
+import { Product } from '../model/product';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +11,11 @@ export class GlobalVariablesService {
   _isConnected: boolean = false;
   _user: Client | undefined;
   constructor(private deepGlobalVariables: DeepGlobalVariablesService) { }
-  
-  set isConnected(isConnected: boolean) { this._isConnected = isConnected; }
-  get isConnected() { return this._isConnected; }
-  get user(): Client { return this._user as Client; }
-  set user(client: Client | undefined) { this._user = client; }
+
   isUserAlreadyRegistered(identifier: string): boolean {
     return this.deepGlobalVariables.isUserAlreadyRegistered(identifier);
   }
+
   logIn(identifier: string, password: string): boolean {
     if(this.isUserAlreadyRegistered(identifier)) {
       this.user = this.deepGlobalVariables.getClientByIdentifier(identifier) as Client;
@@ -25,7 +24,6 @@ export class GlobalVariablesService {
         return this.isConnected;
       }
     }
-    console.log('Id ', identifier, 'Password ', password);
     return false;
   }
   registerNewClient(client: Client, identifier: string): boolean {
@@ -42,5 +40,16 @@ export class GlobalVariablesService {
     this.user = undefined;
     this.isConnected = false;
   }
+  getProducts(): Product[] {
+    return this.deepGlobalVariables.tmpProducts;
+  }
+  getProduct(identifier: string): Product | undefined { 
+    return this.deepGlobalVariables.getProductByIdentifier(identifier);
+  }
+
+  set isConnected(isConnected: boolean) { this._isConnected = isConnected; }
+  get isConnected() { return this._isConnected; }
+  get user(): Client { return this._user as Client; }
+  set user(client: Client | undefined) { this._user = client; }
 
 }

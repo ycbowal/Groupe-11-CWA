@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 
@@ -7,16 +8,31 @@ import { GlobalVariablesService } from 'src/app/services/global-variables.servic
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   mouseIsOverMyAccount: boolean = false;
   lastName: string = '';
   firstName: string = '';
-  constructor(private router: Router, private globalVariables: GlobalVariablesService) {
+  downMedium: boolean = false;
+  myBasket: string = '&#128722;';
+  myAccount: string = '&#128100;'
+  constructor(private router: Router, private observer: BreakpointObserver, private globalVariables: GlobalVariablesService) {
     if(this.isConnected) {
       this.lastName = this.globalVariables.user.lastName;
       this.firstName = this.globalVariables.user.firstName;
     }
    }
+   ngOnInit(): void {
+    this.observer
+      .observe([Breakpoints.XSmall])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.downMedium = true;
+        } else {
+          this.downMedium = false;
+        }
+      });
+   }
+
   mouseEnter(event: Event): void {
     this.mouseIsOverMyAccount = true;
   }
@@ -31,12 +47,15 @@ export class HeaderComponent {
       this.router.navigateByUrl('/toLogIn');
     }
   }
-
-  get isConnected(): boolean { return this.globalVariables.isConnected }
-  set isConnected(state: boolean) {this.isConnected = state; }
   onDisconnect(): void {
     this.globalVariables.logOut();
     this.router.navigateByUrl('/toLogIn');
     this.firstName = this.lastName = '';
   }
+  onUpdateUser(): void {
+    this.router.navigateByUrl('/toUpdateUser');
+  }
+
+  get isConnected(): boolean { return this.globalVariables.isConnected }
+  set isConnected(state: boolean) {this.isConnected = state; }
 }

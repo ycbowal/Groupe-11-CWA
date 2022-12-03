@@ -1,10 +1,10 @@
-import { BucketProduct } from "./bucket-product";
+import { BasketProduct } from "./basket-product";
 import { ClientProduct } from "./client-product";
 
-export class Bucket {
+export class Basket {
     private relativePrice!: number;
     private realPrice!: number;
-    private products!: BucketProduct[];
+    private products!: BasketProduct[];
     private nbProducts!: number;
     private id!: string;
     constructor(id: string) {
@@ -15,6 +15,7 @@ export class Bucket {
         this.nbProducts = 0;
     }
 
+    /*
     deleteFromBucket(product: BucketProduct): void {
         const ind = this.products.findIndex(prod =>{return product.product.id === prod.product.id});
         if(ind) {
@@ -35,4 +36,5 @@ export class Bucket {
             this.products.push(new BucketProduct(product));
         }
     }
+    */
 }
