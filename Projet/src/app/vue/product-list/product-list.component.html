@@ -1,0 +1,3 @@
+<div id="product-list">
+    <app-single-product *ngFor="let product of products; index as i" [product]="product" [isFavorited]="isFavorited(product.id)" (toggleFavorite)="onToggleFavorites($event)"></app-single-product>
+</div>

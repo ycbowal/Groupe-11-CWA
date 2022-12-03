@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Client } from '../model/client';
+import { Product } from '../model/product'
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,19 @@ import { Client } from '../model/client';
 
 export class DeepGlobalVariablesService {
   tmpRegisteredUsers: Client[] = [
-    new Client('CAMARA', 'Mamadou Yacine', 'nozama007', 'yacine@camara.fr', ''),
-    new Client('CHAPPELLE', 'David', 'chapchap007', '', '0000000000')
+    new Client('CAMARA', 'Mamadou Yacine', 'nozama007', 'yacine@camara.fr'),
+    new Client('CHAPPELLE', 'David', 'chapchap007', '0000000000')
   ];
-  constructor() { }
+
+  tmpProducts: Product[] = [
+    new Product('GOT1', 'Le trône de fer', 'Roman fantastique', 30, 1000, '../../assets/products_images/got1.png'),
+    new Product('DK1', 'Les hommes ont peur de la lumière', 'Roman', 20, 1000, '../../assets/products_images/dk1.png'),
+    new Product('DK2', 'L\'homme qui voulait vivre sa vie', 'Roman', 20, 1000, '../../assets/products_images/dk2.png'),
+    new Product('DK3', 'Piège nuptial', 'Roman', 20, 1000, '../../assets/products_images/dk3.png'),
+    new Product('DK4', 'La Symphonie du hasard', 'Roman', 20, 1000, '../../assets/products_images/dk4.png'),
+    new Product('DK5', 'Les charmes de la vie conjugual', 'Roman', 20, 1000, '../../assets/products_images/dk5.png')
+
+  ];
 
   
   isUserAlreadyRegistered(identifier: string): boolean {
@@ -18,15 +28,16 @@ export class DeepGlobalVariablesService {
   }
   getClientByIdentifier(identifier: string): Client | undefined {
     return this.tmpRegisteredUsers.find((client) => {
-      console.log('Param id ', identifier);
-      console.log('id tab ', client.tel, client.mail);
-      return (identifier.length > 0 && (client.mail === identifier || client.tel === identifier));
+      return (identifier.length > 0 && (client.identifier === identifier));
     });
   }
   addNewClient(client: Client): void {
     this.tmpRegisteredUsers.push(client);
   }
-  updateClient(client: Client, identifier: string) {
-    this.getClientByIdentifier(identifier)?.update(client);
-  } 
+  getProductByIdentifier(identifier: string): Product | undefined {
+    return this.tmpProducts.find((product) => {
+      return (identifier.length > 0 && (product.id === identifier));
+    });
+  }
+  
 }

@@ -3,7 +3,7 @@
     <div>
         <h1>S'inscrire</h1>
     </div>
-    <div *ngIf="submitted && isAlreadyRegistered && ((mail?.valid && mail?.value.length > 0) || (tel?.valid && tel?.value.length > 0))" class="unfound-identifier validator-state">
+    <div *ngIf="submitted && isAlreadyRegistered" class="unfound-identifier validator-state">
         <div>&#9888;</div>
         <div>
             <div>Un problème est survénu</div>
@@ -22,18 +22,11 @@
             &#65045; Le prénom et le nom doivent comporter au moins 2 caractères chacun
         </div>
 
-        <div class="same-line-context">
-            <input type="mail" name="mail" placeholder="Adresse e-mail" formControlName="mail">
-            <input type="tel" name="tel" placeholder="Numéro de telephone" formControlName="tel">
+        <div class="uni-line-context">
+            <input type="text" name="identifier" placeholder="Adresse e-mail ou numéro de télephone*" formControlName="identifier" required>
         </div> 
-        <div class="validator-state" *ngIf="submitted && (tel?.pristine && mail?.pristine)">
-            &#65045; Veuillez renseigner une adresse mail ou un numéro de télephone
-        </div>
-        <div class="validator-state" *ngIf="submitted && (mail?.dirty && mail?.invalid)">
-            &#65045; L'adresse mail renseignée est incorrect.
-        </div>
-        <div class="validator-state" *ngIf="submitted && (tel?.dirty && tel?.invalid)">
-            &#65045; Le numéro de télephone renseigné est incorrect
+        <div class="validator-state" *ngIf="submitted && identifier?.invalid">
+            &#65045; Veuillez renseigner une adresse mail ou un numéro de télephone valide
         </div>
         <div class="uni-line-context">
             <input type="password" name="password" minlength="8" placeholder="Mot de passe*" formControlName="password" required><br>

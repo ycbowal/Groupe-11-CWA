@@ -6,16 +6,16 @@
         <ul class="menu-0">
             <li class="search-menu i-menu-0"><input type="search" placeholder="Qu'est-ce qui vous ferait plaisir ?"></li>
             <li class="other-menu i-menu-0" (mouseenter)="mouseEnter($event)" (mouseleave)="mouseLeave($event)">
-                <a routerLink="/toLogIn"><img src="assets/logos/account_17x17.png" alt=""> Mon compte</a>
+                <a routerLink="/toLogIn"><span [innerHTML]="myAccount"></span><span>Mon compte</span></a>
                 <ul class="sub-menu sub-menu-0" *ngIf="mouseIsOverMyAccount">
                     <li *ngIf="!isConnected"><button routerLink="/toLogIn">Idenfiez-vous</button></li>
                     <li *ngIf="isConnected" id="user-name">Bonjour, {{lastName}} {{firstName}}</li>
-                    <li *ngIf="isConnected" class="i-sub-menu-0"><a href="">Mise à jour de mon compte</a></li>
+                    <li *ngIf="isConnected" class="i-sub-menu-0"><a (click)="onUpdateUser()">Mise à jour de mon compte</a></li>
                     <li *ngIf="isConnected"><button [routerLink]="" (click)="onDisconnect()">Deconnexion</button></li>
                 </ul>
             </li>
-            <li class="other-menu i-menu-0"><a [routerLink]="" (click)="onFavorites()"><img src="assets/logos/favorites_17x17.png" alt="">Mes favoris</a></li>
-            <li class="other-menu i-menu-0"><a href=""><img src="assets/logos/basket_17x17.png" alt="">Mon panier</a></li>
+            <li class="other-menu i-menu-0"><a [routerLink]="" (click)="onFavorites()"><span>&#10084;</span><span>Mes favoris</span></a></li>
+            <li class="other-menu i-menu-0"><a href=""><span [innerHTML]="myBasket"></span><span> Mon panier</span></a></li>
         </ul>
     </nav>
 </header>
