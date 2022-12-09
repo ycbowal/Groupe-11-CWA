@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';
-
-
 import { AppComponent } from './app.component';
 import { SignInComponent } from './vue/sign-in/sign-in.component';
 import { LogInComponent } from './vue/log-in/log-in.component';
@@ -17,7 +15,6 @@ import { UpdateUserComponent } from './vue/update-user/update-user.component';
 import { SingleProductComponent } from './vue/single-product/single-product.component';
 import { ProductListComponent } from './vue/product-list/product-list.component';
 import { ProductSheetComponent } from './vue/product-sheet/product-sheet.component';
-
 @NgModule({
   declarations: [
     AppComponent,

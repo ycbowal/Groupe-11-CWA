@@ -1,3 +1,29 @@
+
+
+<app-header (valueofsearch)="getProductByName($event)"></app-header>
+<div>     
+  <table> 
+      <tr>
+        <td> 
+            <label for="Categorie">choisissez une categorie</label>
+            <select style="width: 250px;" (click)="getProductByCategory()" [(ngModel)]="Category" id="Categorie" name="Categorie" class="form-control" >
+            <option value="PC">PC</option>
+            <option value="SMARTPHONE">SMARTPHONE</option>
+            <option value="ROMAN">ROMAN</option>
+           </select>            
+         </td>
+       <td>
+          <label for="Etat">choisissez un Etat</label>     
+          <select style="width: 250px;"  [(ngModel)]="Etat" (click)="getProductByEtat()"class="form-control" name="Etat" > 
+            <option value="Nouveau">Nouveau</option>
+            <option value="Occasion">Occasion</option>
+          </select>
+       </td>
+      </tr> 
+  </table>
+  <br>
+  <br>
+</div>
 <div id="product-list">
-    <app-single-product *ngFor="let product of products; index as i" [product]="product" [isFavorited]="isFavorited(product.id)" (toggleFavorite)="onToggleFavorites($event)"></app-single-product>
+    <app-single-product *ngFor="let product of ProductsList; index as i" [product]="product" [isFavorited]="isFavorited(product.id)" (toggleFavorite)="onToggleFavorites($event)"></app-single-product>
 </div>

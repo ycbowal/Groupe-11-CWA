@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,EventEmitter,Output} from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { GlobalVariablesService } from 'src/app/services/global-variables.service';
@@ -15,6 +15,9 @@ export class HeaderComponent implements OnInit{
   downMedium: boolean = false;
   myBasket: string = '&#128722;';
   myAccount: string = '&#128100;'
+  @Output() valueofsearch = new EventEmitter<string>();
+  ProductName!:string;
+
   constructor(private router: Router, private observer: BreakpointObserver, private globalVariables: GlobalVariablesService) {
     if(this.isConnected) {
       this.lastName = this.globalVariables.user.lastName;
@@ -58,4 +61,15 @@ export class HeaderComponent implements OnInit{
 
   get isConnected(): boolean { return this.globalVariables.isConnected }
   set isConnected(state: boolean) {this.isConnected = state; }
+
+  sendNamevaluetoservice():void{ 
+    this.valueofsearch.emit(this.ProductName);
+    this.refresh();
+  }
+  refresh(): void {
+		this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+		console.log(decodeURI(location.pathname));
+		this.router.navigate([decodeURI(location.pathname)]);
+		});
+	}
 }

@@ -4,8 +4,10 @@
     </div>
     <nav>
         <ul class="menu-0">
-            <li class="search-menu i-menu-0"><input type="search" placeholder="Qu'est-ce qui vous ferait plaisir ?"></li>
-            <li class="other-menu i-menu-0" (mouseenter)="mouseEnter($event)" (mouseleave)="mouseLeave($event)">
+           <li><input type="search" [(ngModel)]="ProductName" name="valueof" placeholder="Qu'est-ce qui vous ferait plaisir ?"></li>
+            <li><div class="input-group-append">
+                <button style="width: 100px;height:10px" class="btn btn-primary" type="submit" (click)="sendNamevaluetoservice()">Recherche</button>
+              </div></li>            <li class="other-menu i-menu-0" (mouseenter)="mouseEnter($event)" (mouseleave)="mouseLeave($event)">
                 <a routerLink="/toLogIn"><span [innerHTML]="myAccount"></span><span>Mon compte</span></a>
                 <ul class="sub-menu sub-menu-0" *ngIf="mouseIsOverMyAccount">
                     <li *ngIf="!isConnected"><button routerLink="/toLogIn">Idenfiez-vous</button></li>

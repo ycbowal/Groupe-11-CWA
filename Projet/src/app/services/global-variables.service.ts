@@ -3,14 +3,19 @@ import { Client } from '../model/client';
 import { DeepGlobalVariablesService } from './deep-global-variables.service';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout'
 import { Product } from '../model/product';
+import { Observable,of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalVariablesService {
+  
   _isConnected: boolean = false;
   _user: Client | undefined;
-  constructor(private deepGlobalVariables: DeepGlobalVariablesService) { }
+  constructor(private deepGlobalVariables: DeepGlobalVariablesService)
+  { 
+    
+  }
 
   isUserAlreadyRegistered(identifier: string): boolean {
     return this.deepGlobalVariables.isUserAlreadyRegistered(identifier);
@@ -40,10 +45,10 @@ export class GlobalVariablesService {
     this.user = undefined;
     this.isConnected = false;
   }
-  getProducts(): Product[] {
-    return this.deepGlobalVariables.tmpProducts;
+  getProducts(): Observable<Product[]> {
+    return of(this.deepGlobalVariables.tmpProducts);
   }
-  getProduct(identifier: string): Product | undefined { 
+  getProduct(identifier: string): Observable<Product >{ 
     return this.deepGlobalVariables.getProductByIdentifier(identifier);
   }
 
@@ -51,5 +56,4 @@ export class GlobalVariablesService {
   get isConnected() { return this._isConnected; }
   get user(): Client { return this._user as Client; }
   set user(client: Client | undefined) { this._user = client; }
-
 }

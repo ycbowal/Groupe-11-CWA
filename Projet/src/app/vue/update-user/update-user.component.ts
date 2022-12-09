@@ -6,7 +6,6 @@ import { copyUser, fillDaysTable, fillYearsTable, Gender, validDate } from 'src/
 import { Address } from 'src/app/model/address';
 import { Client } from 'src/app/model/client';
 import { GlobalVariablesService } from 'src/app/services/global-variables.service';
-
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
