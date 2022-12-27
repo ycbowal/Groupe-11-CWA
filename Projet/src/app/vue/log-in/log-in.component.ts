@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { _validMailAndTel } from 'src/app/controller/utils';
-import { GlobalVariablesService } from 'src/app/services/global-variables.service';
+import { _validMailAndTel } from '../../controller/utils';
+import { GlobalVariablesService } from '../../services/global-variables.service';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',

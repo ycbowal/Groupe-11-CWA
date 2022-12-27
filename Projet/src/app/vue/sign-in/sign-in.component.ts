@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
-import { identifierValidator, nonIdenticRetypedPasswordValidator} from 'src/app/controller/utils';
-import { Client } from 'src/app/model/client';
-import { GlobalVariablesService } from 'src/app/services/global-variables.service';
+import { identifierValidator, nonIdenticRetypedPasswordValidator} from '../../controller/utils';
+import { Client } from '../../model/client';
+import { GlobalVariablesService } from '../../services/global-variables.service';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',

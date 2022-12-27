@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { copyUser, fillDaysTable, fillYearsTable, Gender, validDate } from 'src/app/controller/utils';
-import { Address } from 'src/app/model/address';
-import { Client } from 'src/app/model/client';
-import { GlobalVariablesService } from 'src/app/services/global-variables.service';
+import { copyUser, fillDaysTable, fillYearsTable, Gender, validDate } from '../../controller/utils';
+import { Address } from '../../model/address';
+import { Client } from '../../model/client';
+import { GlobalVariablesService } from '../../services/global-variables.service';
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',

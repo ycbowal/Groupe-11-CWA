@@ -1,18 +1,17 @@
-<div id="product-wrapper" (click)="onGoToTheDescription()">
-    <div id="product-image">
-        <img [src]="product.urlMainImage" [alt]="product.name">
+<div>
+  <div id="product-image">
+    <img [src]="product.urlMainImage" [alt]="product.name" />
+  </div>
+  <div id="product-aside">
+    <div>
+      <span>{{ product.name }}</span>
     </div>
-    <div id="product-aside">
-        <div>
-            <span>{{product.name}}</span>
-        </div>
-        <div>
-            <span>{{product.rate}}/5</span>
-        </div>
-        <div class="product-aside-same-line-context">
-            <span>&euro; {{product.realPrice}}</span>
-            <button> Ajouter au Panier</button>
-        </div>
-    </div>    
+    <div>
+      <span>{{ product.rate }}/5</span>
+    </div>
+    <div>
+      <span>&euro; {{ product.realPrice }}</span>
+      <button (click)="addToBasket()">Ajouter au Panier</button>
+    </div>
+  </div>
 </div>
-

@@ -1,10 +1,10 @@
 import { ClientProduct } from "./client-product";
 export class BasketProduct {
-    public product!: ClientProduct;
+    public Clientproduct!: ClientProduct;
     public nbWantedCopies!: number;
     
-    constructor(product: ClientProduct) {
-        this.product = product;
+    constructor(Clientproduct: ClientProduct) {
+        this.Clientproduct = Clientproduct;
         this.nbWantedCopies = 1;
     }
 }

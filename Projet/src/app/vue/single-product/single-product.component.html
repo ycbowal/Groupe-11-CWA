@@ -1,23 +1,30 @@
-<div id="product-wrapper" (click)="onGoToTheDescription()">
-    <div id="favorite-button">
-        <button (click)="onToggleFavorites($event)" *ngIf="!isFavorited">&#9825;</button>
-        <button (click)="onToggleFavorites($event)" *ngIf="isFavorited" class="isNotFavorit">&#9829;</button>
-    </div>
-    <div id="product-image">
-        <img [src]="product.urlMainImage" [alt]="product.name">
-    </div>
+<div id="product-wrapper">
+  <div id="favorite-button">
+    <button (click)="onToggleFavorites($event)" *ngIf="!isFavorited">
+      &#9825;
+    </button>
+    <button
+      (click)="onToggleFavorites($event)"
+      *ngIf="isFavorited"
+      class="isNotFavorit"
+    >
+      &#9829;
+    </button>
+  </div>
+  <div id="product-image">
+    <img [src]="product.urlMainImage" [alt]="product.name" />
+  </div>
 
-    <div id="product-aside">
-        <div>
-            <span>{{product.name}}</span>
-        </div>
-        <div>
-            <span>{{product.rate}}/5</span>
-        </div>
-        <div class="product-aside-same-line-context">
-            <span>&euro; {{product.realPrice}}</span>
-            <button> Ajouter au Panier</button>
-        </div>
-    </div>    
+  <div id="product-aside">
+    <div>
+      <span>{{ product.name }}</span>
+    </div>
+    <div>
+      <span>{{ product.rate }}/5</span>
+    </div>
+    <div class="product-aside-same-line-context">
+      <span>&euro; {{ product.realPrice }}</span>
+      <button (click)="addToBasket()">Ajouter au Panier</button>
+    </div>
+  </div>
 </div>
-
