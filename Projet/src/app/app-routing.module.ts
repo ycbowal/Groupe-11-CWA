@@ -6,14 +6,22 @@ import { ProductSheetComponent } from './vue/product-sheet/product-sheet.compone
 import { SignInComponent } from './vue/sign-in/sign-in.component';
 import { UpdateUserComponent } from './vue/update-user/update-user.component';
 import { BasketComponent } from './vue/basket/basket.component';
+import { OrderComponent } from './vue/order/order.component';
+import { OrderResultComponent } from './vue/order-result/order-result.component';
+import { SearchComponent } from './vue/search/search.component';
+import { SearchResultComponent } from './vue/search-result/search-result.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
+  { path: 'searchResult', component: SearchResultComponent },
+  { path: 'search', component: SearchComponent },
   { path: 'tobasket', component: BasketComponent },
   { path: 'toSignIn', component: SignInComponent },
   { path: 'toLogIn', component: LogInComponent },
   { path: 'toUpdateUser', component: UpdateUserComponent },
   { path: 'toProductSheet/:productId', component: ProductSheetComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'componentresult', component: OrderResultComponent },
 ];
 
 @NgModule({

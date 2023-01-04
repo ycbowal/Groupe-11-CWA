@@ -6,7 +6,7 @@ import { ClientProduct } from '../../model/client-product';
 @Component({
   selector: 'app-single-product',
   templateUrl: './single-product.component.html',
-  styleUrls: ['./single-product.component.scss'],
+  styleUrls: ['./single-product.component.css'],
 })
 export class SingleProductComponent implements OnInit {
   @Input() product!: Product;

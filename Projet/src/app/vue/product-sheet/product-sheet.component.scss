@@ -1,57 +1,68 @@
-#product-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
+.product-page {
     width: 100%;
-    height: 400px;
-    cursor: pointer;
-    font-family: 'Corbel', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-z
-#product-image {
-    width: 30%;
-    height: 80%;
+ .product-page-container {
+    max-width: 1140px;
+    text-align: center;
+    padding: 0 30px;
     margin: auto;
-    border: 1px solid red;
-    img {
+}
+.product-breadcrumbs {
+    padding: 30px 0;
+}
+.product-breadcrumbs li{
+    display: inline-block;
+    letter-spacing: .1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: .85em;
+}
+.product-breadcrumbs li a {
+    color: #4a4a4a;
+}
+.product-breadcrumbs li:last-child{
+    opacity: 0.5;
+}
+
+.product-details-image {
+    width: 55%;
+    padding-top: 63.3%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 992px) {
+    .product-details-image {
         width: 100%;
-        height: 100%;
+        padding-top: 66.6%;
     }
 }
-
-#product-aside {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    border: 1px solid blue;
-    .product-aside-same-line-context {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #FF9900;
-
-        button {
-            background-color: #0B2239;
-            border-radius: 0;
-            cursor: pointer;
-            color: white;
-            font-size: 0.8em;
-            padding: 0;
-            margin: 0;
-            height: 100%;
-            &:hover {
-                opacity: 0.9;
-                font-size: 1em;
-            }
-        }
-    }
+.product-brand {
+    color: #7d7d7d;
 }
-
-
-
-.isNotFavorit {
-    color: transparent;  
-    text-shadow: 0 0 0 red;
+.product-title {
+    margin:15px 0;
+    font-size:2.5em;
+    font-weight: 400;
+    font-family: "Playfair Display";
 }
+.product-price {
+    color:red;
+    font-family: "Playfair Display";
+    font-size:25px;
+}
+.product-description {
+    color: #7d7d7d;
+    margin:10px 0 30px 0;
+}
+.product-details-button {
+    padding:25px 0;
+    border-top: 1px solid #e4e4e4;
+    text-align: center;
+}
+.product-cart-button {
+    vertical-align: top;
+    margin-left:5px
+}
+ 

@@ -43,8 +43,13 @@ export class BasketComponent implements OnInit {
     this.BasketService.addToBasket(product);
     this.refresh();
   }
-    
-
+  gotoOrderpage(){
+   if(this.globaVariables.isConnected)
+      this.router.navigateByUrl(`order`);
+    else
+       this.router.navigateByUrl(`toLogIn`);
+  }
+ 
   removeFromBasket(product: ClientProduct) {
     this.BasketService.deleteFrombasket(product);
     this.refresh();

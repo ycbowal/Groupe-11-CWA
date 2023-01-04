@@ -1,16 +1,22 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Observable ,of} from 'rxjs';
-import { MockProducts } from '../model/mockProducts';
 import { Product } from '../model/product';
+ import products from "../../assets/MockProducts/products.json"
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService implements OnInit {
-  constructor(){}
-  Products:Product[]=MockProducts;
-  ngOnInit(): void { this.getProducts()};
+  Products:Product[]=products;
+  constructor( ){ }
+  ngOnInit(): void {
+   }
+
   getProducts(): Observable<Product[]>{   
      return of(this.Products); 
+  }
+  
+  getData(){
+    
   }
  set LP(ProductS:Product[]){this.Products=ProductS;}
 }

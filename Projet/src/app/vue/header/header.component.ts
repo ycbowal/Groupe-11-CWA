@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import {
+import{
   BreakpointObserver,
   Breakpoints,
   BreakpointState,

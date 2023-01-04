@@ -21,19 +21,6 @@ Products!:Product[];
     });
      return  Result;
   }    
-  getProductByCategory(category:string,Products:Product[]): Product[]
-  { this.category=category;
-     const Result = Products.filter((obj)=>{
-                        return  obj.categories===this.category;
-               });
-          return Result;  
-  }
-  getProductByEtat(isNew:boolean,products:Product[]):Product[]
-  {  
-    this.Etat=isNew;
-    const Result =products.filter((obj)=>{  
-                        return  obj.isNew===this.Etat;
-               }); 
-          return  Result; 
-}
+   
+  
 }

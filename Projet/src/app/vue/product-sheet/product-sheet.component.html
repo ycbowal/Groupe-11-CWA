@@ -1,17 +1,19 @@
-<div>
-  <div id="product-image">
-    <img [src]="product.urlMainImage" [alt]="product.name" />
-  </div>
-  <div id="product-aside">
-    <div>
-      <span>{{ product.name }}</span>
+<div *ngIf="product" class="product-page">
+<div class="product-page-container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="product-details-image"  [ngStyle]="{'background-image': 'url(../' + product.urlMainImage + ')'}"></div>
+        </div>
+        <div class="col-md-4">
+            <div class="product-details-row">
+                 <h1 class="product-title">{{product.name}}</h1>
+                <div class="product-price">{{product.realPrice | currency :'EUR':true }}</div>
+                <div class="product-description">{{product.description}}</div>
+            </div>
+            <div class="product-details-button">
+            <div class="button button-primary" (click)="addToBasket()">Add To Cart</div>
+            </div>
+        </div>
     </div>
-    <div>
-      <span>{{ product.rate }}/5</span>
-    </div>
-    <div>
-      <span>&euro; {{ product.realPrice }}</span>
-      <button (click)="addToBasket()">Ajouter au Panier</button>
-    </div>
-  </div>
+</div>
 </div>

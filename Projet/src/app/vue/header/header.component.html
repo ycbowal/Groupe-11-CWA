@@ -4,34 +4,13 @@
   </div>
   <nav>
     <ul class="menu-0">
-      <li>
-        <input
-          type="search"
-          [(ngModel)]="ProductName"
-          name="valueof"
-          placeholder="Qu'est-ce qui vous ferait plaisir ?"
-        />
-      </li>
-      <li>
-        <div class="input-group-append">
-          <button
-            style="width: 100px;height:10px"
-            class="btn btn-primary"
-            type="submit"
-            (click)="sendNamevaluetoservice()"
-          >
-            Recherche
-          </button>
-        </div>
-      </li>
+    <li  class="search"><app-search></app-search></li>
       <li
         class="other-menu i-menu-0"
         (mouseenter)="mouseEnter($event)"
-        (mouseleave)="mouseLeave($event)"
-      >
+        (mouseleave)="mouseLeave($event)">
         <a routerLink="/toLogIn"
-          ><span [innerHTML]="myAccount"></span><span>Mon compte</span></a
-        >
+          ><span [innerHTML]="myAccount"></span><span>Mon compte</span></a>
         <ul class="sub-menu sub-menu-0" *ngIf="mouseIsOverMyAccount">
           <li *ngIf="!isConnected">
             <button routerLink="/toLogIn">Idenfiez-vous</button>
@@ -49,13 +28,11 @@
           </li>
         </ul>
       </li>
-      <li class="other-menu i-menu-0">
-        <a [routerLink]="" (click)="onFavorites()"
-          ><span>&#10084;</span><span>Mes favoris</span></a
-        >
+       
+      <li    class="other-menu i-menu-0">
+      <a routerLink="/tobasket"><span [innerHTML]="myAccount"></span><span>Panier</span></a>
       </li>
-       <li> <button (click)="gotoBasketView()">Panier</button></li>
     </ul>
-   
   </nav>
 </header>
+

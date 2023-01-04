@@ -10,7 +10,6 @@ import { LogInComponent } from './vue/log-in/log-in.component';
 import { MinHeaderComponent } from './vue/min-header/min-header.component';
 import { BasketproductsService } from './services/basketproducts.service';
 import { BasketComponent } from './vue/basket/basket.component';
-
 import { HeaderComponent } from './vue/header/header.component';
 import { LandingPageComponent } from './vue/landing-page/landing-page.component';
 import { DeepGlobalVariablesService } from './services/deep-global-variables.service';
@@ -19,7 +18,10 @@ import { SingleProductComponent } from './vue/single-product/single-product.comp
 import { ProductListComponent } from './vue/product-list/product-list.component';
 import { ProductSheetComponent } from './vue/product-sheet/product-sheet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
+import { OrderComponent } from './vue/order/order.component';
+import { OrderResultComponent } from './vue/order-result/order-result.component';
+import { SearchComponent } from './vue/search/search.component';
+import { SearchResultComponent } from './vue/search-result/search-result.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductListComponent,
     ProductSheetComponent,
     BasketComponent,
-    
+    OrderComponent,
+    OrderResultComponent,
+    SearchComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
@@ -43,8 +48,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LayoutModule,
     BrowserAnimationsModule,
     BrowserModule,
-    FormsModule,
-  ],
+    FormsModule 
+   ],
   providers: [],
   bootstrap: [AppComponent],
 })

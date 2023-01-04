@@ -1,52 +1,74 @@
- <div class="cart-page-container">
- <div class="cart-page-content" *ngIf="BasketProducts.length > 0">
+<div class="cart-page-container">
+  <div class="cart-page-content" *ngIf="BasketProducts.length > 0">
     <div class="cart-item-header cart-item-row">
-        <div class="cart-item-cell cart-item-product"><span>Produit</span></div>
-        <div class="cart-item-cell cart-item-quantity"><span>Quantité</span></div>
-        <div class="cart-item-cell cart-item-total"><span>Total</span></div>
-        <div class="cart-item-cell cart-item-action"><span>Action</span></div>
+      <div class="cart-item-cell cart-item-product"><span>Produit</span></div>
+      <div class="cart-item-cell cart-item-quantity"><span>Quantité</span></div>
+      <div class="cart-item-cell cart-item-total"><span>Total</span></div>
+      <div class="cart-item-cell cart-item-action"><span>Action</span></div>
     </div>
-    <div class="cart-item-row" *ngFor="let product of BasketProducts;let i = index">
-        <div class="cart-item-cell cart-item-product">
-            <div class="cart-item-thumbnail" [ngStyle]="{'background-image': 
-            'url('+product.Clientproduct.product.urlMainImage+')'}">
-               
-            </div>
-            <div class="cart-item-info">
-                <div class="cart-item-brand">{{product.Clientproduct.product.name}}</div>
-                <div class="cart-item-title">{{product.Clientproduct.product.name}}</div>
-                <div class="cart-item-title">{{product.nbWantedCopies}}</div>
-            </div>
+    <div
+      class="cart-item-row"
+      *ngFor="let product of BasketProducts; let i = index">
+      <div class="cart-item-cell cart-item-product">
+        <div
+          class="cart-item-thumbnail"
+          [ngStyle]="{
+            'background-image':
+              'url(' + product.Clientproduct.product.urlMainImage + ')'
+          }"
+        ></div>
+        <div class="cart-item-info">
+          <div class="cart-item-brand">
+            {{ product.Clientproduct.product.name }}
+          </div>
+          <div class="cart-item-title">
+            {{ product.Clientproduct.product.name }}
+          </div>
+          <div class="cart-item-title">{{ product.nbWantedCopies }}</div>
         </div>
-        <div class="cart-item-cell cart-item-quantity">
-         <button  (click)="addToBasket(product.Clientproduct)">+</button>
-         <button (click)=" removeFromBasket(product.Clientproduct)">-</button>
-    </div>
- 
-        <div class="cart-item-cell cart-item-total">
-            <div class="item-price">
-                {{product.nbWantedCopies*product.Clientproduct.product.realPrice | currency :'EUR':true }}
-            </div>
+      </div>
+      <div class="cart-item-cell cart-item-quantity">
+        <button (click)="addToBasket(product.Clientproduct)">+</button>
+        <button (click)="removeFromBasket(product.Clientproduct)">-</button>
+      </div>
+
+      <div class="cart-item-cell cart-item-total">
+        <div class="item-price">
+          {{
+            product.nbWantedCopies * product.Clientproduct.product.realPrice
+              | currency: 'EUR':true
+          }}
         </div>
-        <div class="cart-item-cell cart-item-action">
-            <div class="item-remove" (click)="removeDirectlyFromBasket(product.Clientproduct)">X</div>
+      </div>
+      <div class="cart-item-cell cart-item-action">
+        <div
+          class="item-remove"
+          (click)="removeDirectlyFromBasket(product.Clientproduct)"
+        >
+          X
         </div>
+      </div>
     </div>
     <div class="row cart-total">
-        <div class="col-lg-offset-6">
-            <div class="cart-total-row row">
-             </div>
-            <div class="cart-total-row row">
-            </div>
-        </div>
+      <div class="col-lg-offset-6">
+        <div class="cart-total-row row"></div>
+        <div class="cart-total-row row"></div>
+      </div>
     </div>
     <div class="cart-buttons">
-        <div class="continue-shopping"><a routerLink="">Retour aux Achats</a></div>
-        <div class="checkout-button button button-primary button-large">Valider({{getTotal() | currency :'EUR':true}})</div>
+      <div class="continue-shopping">
+        <a routerLink="">Retour aux Achats</a>
+      </div>
+      <div
+        class="checkout-button button button-primary button-large"
+        (click)="gotoOrderpage()"
+      >
+        Valider({{ getTotal() | currency: 'EUR':true }})
+      </div>
     </div>
-</div>
-<div class="cart-page-content" *ngIf="BasketProducts.length == 0">
+  </div>
+  <div class="cart-page-content" *ngIf="BasketProducts.length == 0">
     <h4>Votre Panier est vide</h4>
     <a routerLink="/">Retour aux Achats</a>
-</div>
+  </div>
 </div>

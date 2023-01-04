@@ -1,59 +1,116 @@
 @import url('//fonts.googleapis.com/css?family=Roboto:400,400italic,500,700|Playfair+Display:400,400italic,700,700italic|Montserrat:400|Karla:400');
+  
+
 body {
     font-family: Roboto;
     font-size: 14px;
     line-height: 1.666;
-    padding-top:70px;
 }
-.main-header {
-    color: #1d1d20;
-    vertical-align: middle;
-    display: table;
-    width: 100%;
-    background-color: #fff;
+.header-image {
+    height: 400px;
+    background-size:cover;
+    background-position: center center;
 }
-.main-header .header-menu {
-    display: table;
-    width: 100%;
-    padding: 0 15px;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    box-sizing: border-box;
-    table-layout: fixed;
-    border-bottom-color: #e4e4e4;
+.header-block {
+    height: 100%;
+    background-color: #0b2239;
+    color: white;
+    width: 50%;
+    margin:auto;
+    border-color:white;
+    border-style:solid;
+    border-width: 0 15px;
+    display:table;
 }
-.header-nav-wrapper,
-.header-cart-wrapper {
-    display: table-cell;
-    font-weight: 700;
-    vertical-align: middle;
-}
-.header-nav {
-    display: block;
-    margin: 0;
+.header-text {
     text-align: center;
+    vertical-align: middle;
+    display: table-cell;
 }
-.header-nav-item:first-child {
-    margin-left: 0;
+.header-text-title {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 500;
+    padding-bottom:10px;
+    border-bottom: 1px solid white;
 }
-.header-cart-item a,
-.header-nav-item a {
-    color:#1d1d20;
+.header-text p {
+    padding:10px 40px
+}
+.layout-container {
+    max-width: 1140px;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.product-grid {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.product-image {
+     
+    padding-bottom: 66.66667%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.image-container {
+    position: relative;
+}
+.image-container:hover .product-image{
+    opacity: 0.3;
+    background-size:120%;
+}
+.image-container:hover .overlay{
+    opacity: 1;
+}
+.overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+.overlay .button {
+    width: 160px;
+    line-height: 38px;
+}
+.overlay .button:first-child {
+    margin-bottom: 2em;
+}
+.product-details {
+    padding-top: 15px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.product-brand {
+    display: block;
+    margin: .5em 0;
+    color:white;
+}
+.product-title {
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-top: 0;
+    margin-bottom: .5em;
+    font-size: 1em;
+    line-height: 1.2;
+    font-weight: 400;
     font-family: Roboto;
 }
-.header-nav-item {
-    display: inline-block;
-    margin-left: 30px;
-    position: inherit;
+.product-price {
+    font-size: 1.14286em;
+    color: white;
+    font-family: Playfair Display;
 }
-.header-cart-item .fa,
-.header-nav-item .fa {
-    margin-top: 1px;
-    margin-left: 6px;
-}
-.header-cart {
-    text-align:right;
-    margin-right:30px;
+@media screen and (max-width: 767px) {
+    .header-block {
+        width: 100%;
+    }
 }
 
 .button {
@@ -73,23 +130,23 @@ body {
     box-sizing: border-box;
 }
 .button.button-primary {
-    color: #fff;
-    background-color: #3b3d38;
+    background-color: #0b2239;
+    color: white;  
     border-color: #3b3d38;
 }
 .button.button-primary:hover {
-    color: #fff;
-    background-color: #52525b;
+    background-color: #0b2239;
+  color: white;
     border-color: #52525b;
 }
 .button.button-secondary {
-    color: #1d1d20;
-    background-color: #fff;
+    background-color: #0b2239;
+    color: white;
     border-color: #1d1d20;
 }
 .button.button-secondary:hover {
-    color: #fff;
-    background-color: #8e8e90;
+    background-color: #0b2239;
+    color: white;
     border-color: #8e8e90;
 }
 .button.button-wide {
