@@ -1,0 +1,124 @@
+
+ 
+<div class="cart-page-container" >
+ <section>
+    Formulaire de Livraison
+ <form [formGroup]="angForm" (ngSubmit) = onOrder()>
+ <div class="form-group">
+     <input class="form-control" formControlName="name" type="text" placeholder="Name" >
+ </div>
+ <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+     <div *ngIf="angForm.controls['name'].errors.required">
+       Name is required.
+     </div>
+ </div>
+  <div class="form-group">
+      <input class="form-control" formControlName="firstname" type="text" placeholder="firstname" >
+ </div>
+ <div *ngIf="angForm.controls['firstname'].invalid && (angForm.controls['firstname'].dirty || angForm.controls['firstname'].touched)" class="alert alert-danger">
+     <div *ngIf="angForm.controls['firstname'].errors.required">
+     firstname is required.
+     </div>
+ </div>
+ 
+ <div class="form-group">
+ <input class="form-control" formControlName="Address" type="text" placeholder="Address of delivery" >
+ </div>
+ <div *ngIf="angForm.controls['Address'].invalid && (angForm.controls['Address'].dirty || angForm.controls['Address'].touched)" class="alert alert-danger">
+ <div *ngIf="angForm.controls['Address'].errors.required">
+   Address is required of delivery
+ </div>
+ </div>
+ 
+ 
+ 
+ <div class="form-group">
+ <input class="form-control" formControlName="town" type="text" placeholder="town" >
+ </div>
+ <div *ngIf="angForm.controls['town'].invalid && (angForm.controls['town'].dirty || angForm.controls['town'].touched)" class="alert alert-danger">
+ <div *ngIf="angForm.controls['town'].errors.required">
+   town is required.
+ </div>
+ </div>
+ 
+ 
+ <div class="form-group">
+ <input class="form-control" formControlName="country" type="text" placeholder="country" >
+ </div>
+ <div *ngIf="angForm.controls['country'].invalid && (angForm.controls['country'].dirty || angForm.controls['country'].touched)" class="alert alert-danger">
+ <div *ngIf="angForm.controls['country'].errors.required">
+   country is required.
+ </div>
+ </div>
+ 
+ <div class="uni-line-context">
+ <input type="postal" name="postalcode" minlength="4" placeholder="postalcode" formControlName="postalcode" required><br>
+ </div>
+ <div  *ngIf="angForm.controls['postalcode'].invalid&& (angForm.controls['postalcode'].dirty || angForm.controls['postalcode'].touched)"  class="alert alert-danger">
+  the postalcode must be have 4 caracters
+ </div>
+ 
+ 
+ </form>
+
+</section>
+<section  *ngIf="!angForm.pristine||!angForm.invalid">
+<div class="cart-page-content" *ngIf="BasketProducts.length > 0">
+<div class="cart-item-header cart-item-row">
+  <div class="cart-item-cell cart-item-product"><span>Produit</span></div>
+  <div class="cart-item-cell cart-item-quantity"><span>Quantité</span></div>
+  <div class="cart-item-cell cart-item-total"><span>Total</span></div>
+  <div class="cart-item-cell cart-item-action"><span>Action</span></div>
+</div>
+<div
+  class="cart-item-row"
+  *ngFor="let product of BasketProducts; let i = index"
+>
+  <div class="cart-item-cell cart-item-product">
+    <div
+      class="cart-item-thumbnail"
+      [ngStyle]="{
+        'background-image':
+          'url(' + product.Clientproduct.product.urlMainImage + ')'
+      }"
+    ></div>
+    <div class="cart-item-info">
+      <div class="cart-item-brand">
+        {{ product.Clientproduct.product.name }}
+      </div>
+      <div class="cart-item-title">
+        {{ product.Clientproduct.product.name }}
+      </div>
+      <div class="cart-item-title">{{ product.nbWantedCopies }}</div>
+    </div>
+  </div>
+   
+
+  <div class="cart-item-cell cart-item-total">
+    <div class="item-price">
+      {{
+        product.nbWantedCopies * product.Clientproduct.product.realPrice
+          | currency: 'EUR':true
+      }}
+    </div>
+  </div>
+  <div class="cart-item-cell cart-item-action">
+    <div
+      class="item-remove"
+      (click)="removeDirectlyFromBasket(product.Clientproduct)">
+      X
+    </div>
+  </div>
+</div>
+<div class="cart-buttons">
+<div
+  class="checkout-button button button-primary button-large"
+  (click)="gotoOrderValidpage()"
+ >Valider <br>la com
+</div>
+</div>
+</div>
+
+</section>
+</div>
+
