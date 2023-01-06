@@ -3,6 +3,10 @@ import { Address } from '../model/address';
 import { Client } from '../model/client';
 import { User } from '../model/user';
 
+
+export class Utils{
+
+}
 export function nonIdenticRetypedPasswordValidator(passwordControl: AbstractControl): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
         return (control.value !== passwordControl.value && passwordControl.value.length !== 0)?{retypedPasswordError: {value: control.value}} : null;

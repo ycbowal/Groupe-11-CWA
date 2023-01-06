@@ -12,54 +12,9 @@ const Image: string[] = [
 ];
 
 export const MockProducts: Product[] = [
-  new Product(
-    '1',
-    'huawei',
-    '----',
-    500,
-    2,
-    Image[0],
-    'SMARTPHONE',
-    true
-  ),
-  new Product(
-    '2',
-    'iphone14',
-    '----',
-    500,
-    2,
-    Image[1],
-    'SMARTPHONE',
-    true ),
-  new Product(
-    '3',
-    'asus',
-    '----',
-    500,
-    2,
-    Image[2],
-    'PC',
-    false
-  ),
-  new Product(
-    '4',
-    'dell',
-    '----',
-    500,
-    2,
-    Image[3],
-    'PC',
-    true
-  ),
-  new Product(
-    '5',
-    'MSI',
-    '----',
-    500,
-    2,
-    Image[4],
-    'PC',
-    false
-  ),
-   
+  new Product(0, '1', 'huawei', '----', 500, 2, Image[0], 'SMARTPHONE', true),
+  new Product(0, '2', 'iphone14', '----', 500, 2, Image[1], 'SMARTPHONE', true),
+  new Product(0, '3', 'asus', '----', 500, 2, Image[2], 'PC', false),
+  new Product(0, '4', 'dell', '----', 500, 2, Image[3], 'PC', true),
+  new Product(0, '5', 'MSI', '----', 500, 2, Image[4], 'PC', false)
 ];

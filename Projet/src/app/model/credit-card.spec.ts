@@ -1,7 +1,8 @@
-/*import { Carte } from './carte';
+import { CreditCard } from './credit-card';
 
 describe('Carte', () => {
   it('should create an instance', () => {
-    expect(new Carte()).toBeTruthy();
+    const card = new CreditCard("Bozoie", "Bong" , "4546-5566-4489-8949" ,"21-09") ; 
+    expect(card).toBeTruthy();
   });
-});*/
+});
