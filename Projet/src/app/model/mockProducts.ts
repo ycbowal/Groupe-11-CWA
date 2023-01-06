@@ -18,3 +18,4 @@ export const MockProducts: Product[] = [
   new Product(0, '4', 'dell', '----', 500, 2, Image[3], 'PC', true),
   new Product(0, '5', 'MSI', '----', 500, 2, Image[4], 'PC', false)
 ];
+
