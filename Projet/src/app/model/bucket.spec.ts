@@ -69,7 +69,6 @@ describe('Bucket', () => {
     basket.addToBasket(cp) ;
     expect(basket.totalAmount()).toEqual(p.realPrice) ; 
   }); 
-
   
   
 });
