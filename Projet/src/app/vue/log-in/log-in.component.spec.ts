@@ -30,5 +30,8 @@ describe('LogInComponent', () => {
     userform.value.identifier = c.identifier; 
     userform.value.password = c.password; 
     expect(component.onLogIn(userform)).toBeTruthy() ; 
-  })
+  }) ;
+  it('invalid mail', ()=>{
+    expect(component.invalidMailAndTel("bonjour@gmail.com")).toEqual(true) ; 
+  }) ; 
 });
