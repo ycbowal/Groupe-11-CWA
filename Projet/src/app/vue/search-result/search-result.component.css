@@ -1,3 +1,8 @@
-@import '../basket/basket.component.css';
-
-@import '../product-list/product-list.component.scss'; 
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+     position:relative;
+}
+app-single-product {
+    margin-bottom: 20px;
+}

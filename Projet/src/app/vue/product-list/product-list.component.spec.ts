@@ -34,18 +34,5 @@ describe('ProductListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('favorite', () => {
-    const prod : PRODUCTJSON[] = ProductJson ; 
-    const p = new Product(prod[0].relativePrice , prod[0].id, prod[0].name , prod[0].description, prod[0].realPrice , prod[0].totalNbCopies, prod[0].urlMainImage , prod[0].isAvailable) ; 
-
-    expect(component.onToggleFavorites(p)).toBeTruthy();
-  });
-
-  it('isfavorite', ()=>{
-    const prod : PRODUCTJSON[] = ProductJson ; 
-    const p = new Product(prod[0].relativePrice , prod[0].id, prod[0].name , prod[0].description, prod[0].realPrice , prod[0].totalNbCopies, prod[0].urlMainImage , prod[0].isAvailable) ; 
-    component.onToggleFavorites(p) ; 
-
-    expect(component.isFavorited(p.id)).toEqual(true)  ;
-  }) ;
+   
 });

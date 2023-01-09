@@ -23,8 +23,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private observer: BreakpointObserver,
-    private globalVariables: GlobalVariablesService
+     private globalVariables: GlobalVariablesService
   ) {
     if (this.isConnected) {
       this.lastName = this.globalVariables.user.lastName;
@@ -32,15 +31,7 @@ export class HeaderComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.observer
-      .observe([Breakpoints.XSmall])
-      .subscribe((state: BreakpointState) => {
-        if (state.matches) {
-          this.downMedium = true;
-        } else {
-          this.downMedium = false;
-        }
-      });
+     
   }
 
   mouseEnter(event: Event): void {

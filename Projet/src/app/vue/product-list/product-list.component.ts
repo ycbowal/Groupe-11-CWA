@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../../model/product';
 import { GlobalVariablesService } from '../../services/global-variables.service';
-import { SearchResultService } from '../../services/searchresult.service';
-import { research } from '../../model/Reseach';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',

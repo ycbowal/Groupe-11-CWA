@@ -1,13 +1,12 @@
-
-<div id="product-list" *ngIf="ProductsList&&ProductsList.length>0">
+ 
+<div id="product-list"  *ngIf="ProductsList&&ProductsList.length>0">
   <div class="col-md-4" *ngFor="let product of ProductsList; index as i" >
-  <app-single-product [product]="product">
+  <app-single-product
+    [product]="product"
+  >
   </app-single-product>
   </div>
 </div>
-
-<div class="cart-page-content" *ngIf="!(ProductsList&&ProductsList.length>0)">
-<h4>aucun resultat</h4>
-<a routerLink="/">Retour aux Achats</a>
+<div  *ngIf="!(ProductsList&&ProductsList.length>0)">
+<p>aucun resultat</p>
 </div>
-

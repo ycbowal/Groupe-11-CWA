@@ -33,7 +33,7 @@ export class BasketComponent implements OnInit {
   }
   refresh(): void {
     this.router
-      .navigateByUrl('/tobasket', { skipLocationChange: true })
+      .navigateByUrl('basket', { skipLocationChange: true })
       .then(() => {
         console.log(decodeURI(location.pathname));
         this.router.navigate([decodeURI(location.pathname)]);
@@ -47,7 +47,7 @@ export class BasketComponent implements OnInit {
    if(this.globaVariables.isConnected)
       this.router.navigateByUrl(`order`);
     else
-       this.router.navigateByUrl(`toLogIn`);
+       this.router.navigateByUrl(`login`);
   }
  
   removeFromBasket(product: ClientProduct) {

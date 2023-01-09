@@ -9,10 +9,10 @@ import { Product } from '../../model/product';
 export class SearchResultComponent implements OnInit {
   ProductsList!: Product[];
   constructor(private searchResult:SearchResultService) {
-       if(this.searchResult.GetProducts){
-        if(this.searchResult.GetProducts.length>0){
+      if(this.searchResult.GetProducts){
+        if(this.searchResult.GetProducts.length>0)
         this.searchResult.getSearchProducts().subscribe((result) => (this.ProductsList = result));
-      }
+        this.searchResult.Products=[];
       }}
   ngOnInit() {}
 }

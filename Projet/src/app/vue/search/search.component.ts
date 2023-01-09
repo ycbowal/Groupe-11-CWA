@@ -28,14 +28,9 @@ export class SearchComponent implements OnInit {
     this.Research = new research();
   }
   getProductByName(): void {
-    
-    
     if(this.name){
     this.ProductsListTemp=this.Research.getProductByname(this.name, this.ProductsList);
-    this.searchResult.Products = this.Research.getProductByname(
-      this.name,
-      this.ProductsList
-    );
+    this.searchResult.Products = this.Research.getProductByname(this.name,this.ProductsList);
     if(this.searchResult.GetProducts.length>0)
        this.router.navigateByUrl('searchResult');
     else

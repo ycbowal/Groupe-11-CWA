@@ -4,8 +4,8 @@
   </div>
   <nav>
     <ul class="menu-0">
-    <li  class="search"><app-search></app-search></li>
-      <li
+    <li  class="search"><app-search></app-search>
+      <li    
         class="other-menu i-menu-0"
         (mouseenter)="mouseEnter($event)"
         (mouseleave)="mouseLeave($event)">
@@ -22,15 +22,14 @@
             <a (click)="onUpdateUser()">Mise à jour de mon compte</a>
           </li>
           <li *ngIf="isConnected">
-            <button [routerLink]="" (click)="onDisconnect()">
+            <button  (click)="onDisconnect()">
               Deconnexion
             </button>
           </li>
         </ul>
       </li>
-       
-      <li    class="other-menu i-menu-0">
-      <a routerLink="/tobasket"><span [innerHTML]="myAccount"></span><span>Panier</span></a>
+      <li class="other-menu i-menu-0">
+      <a routerLink="basket"><span></span><span>Panier</span></a>
       </li>
     </ul>
   </nav>

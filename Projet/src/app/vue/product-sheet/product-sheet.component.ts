@@ -28,7 +28,6 @@ export class ProductSheetComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  
 
   addToBasket(): void {
     this.Basket.addToBasket(new ClientProduct(this.product, this.isFavorited));

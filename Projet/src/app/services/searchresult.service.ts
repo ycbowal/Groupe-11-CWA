@@ -13,7 +13,7 @@ export class SearchResultService implements OnInit {
   getSearchProducts(): Observable<Product[]> {
     return of(this._Products);
   }
-  set Products(ProductS: Product[]) {
+  set Products(ProductS: any[]) {
     this._Products = ProductS;
   }
   get GetProducts() {

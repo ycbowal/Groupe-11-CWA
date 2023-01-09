@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-result.component.css']
 })
 export class OrderResultComponent implements OnInit {
-
   constructor() { }
-
   ngOnInit() {
   }
-
 }

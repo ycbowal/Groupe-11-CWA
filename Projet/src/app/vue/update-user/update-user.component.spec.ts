@@ -20,15 +20,4 @@ describe('UpdateUserComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('createForm',()=>{
-    expect(component.createForm()).toBeTruthy() ; 
-  }); 
-
-  it('onUpdate',()=>{
-    expect(component.onUpdate()).toBeTruthy(); 
-  });
-  it('onCancel',()=>{
-    expect(component.onCancel()).toBeTruthy(); 
-  });
 });

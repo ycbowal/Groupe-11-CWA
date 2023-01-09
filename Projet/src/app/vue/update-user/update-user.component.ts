@@ -14,7 +14,7 @@ import { GlobalVariablesService } from '../../services/global-variables.service'
 export class UpdateUserComponent {
   tmpUser!: Client;
   submitted: boolean = false;
-  userForm!: FormGroup;
+  userForm!:any;
   isFullyUpdated: boolean = false;
   days: string[] = [];
   months: string[] = [
