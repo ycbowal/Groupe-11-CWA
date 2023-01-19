@@ -1,0 +1,30 @@
+<table>
+    <tr>
+        <td><select [(ngModel)]="flag" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
+            <option value="Sup">Sup</option>
+            <option value="Inf">Inf</option>
+        </select>
+    </td>
+        <td>
+            <nav *ngIf="flag==='Sup'">
+                <div>
+                  <div>
+                    <input  type="text" [(ngModel)]="Price" placeholder="Search" aria-label="Search">
+                    <button   type="submit" (click)="getProductByPriceSup()">Search</button>
+                  </div>
+                </div>
+            </nav>
+        </td>
+        <td *ngIf="flag==='Inf'">
+            <nav>
+                <div>
+                  <div>
+                    <input  type="text" [(ngModel)]="Price" placeholder="Search" aria-label="Search">
+                    <button   type="submit" (click)="getProductByPriceInf()">Search</button>
+                  </div>
+                </div>
+           </nav>
+        </td>
+    </tr>
+</table>
+    

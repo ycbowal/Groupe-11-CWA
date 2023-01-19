@@ -21,11 +21,9 @@ export class LogInComponent {
       if(this.globalVariables.logIn(this.identifier, this.password)) {
         this.router.navigateByUrl('/');
         this.identifier = this.password = '';
-        this.submitted = this.isNotRegistered = false;
-      }
+        this.submitted = this.isNotRegistered = false;}
       else {
-        this.isNotRegistered = true;
-      }
+        this.isNotRegistered = true;}
     }   
     else {
       this.isNotRegistered = true;

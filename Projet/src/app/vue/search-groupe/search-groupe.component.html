@@ -1,0 +1,19 @@
+
+
+<table>
+    <tr>
+       <td> 
+        <label class="lab">Mode de Recherche :</label>
+        <select [(ngModel)]="flag" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
+         <option value="Price"> Prix</option>
+         <option value="Name">Nom</option>
+         </select>
+       </td>
+       <td>
+         <app-search *ngIf="flag==='Name'" ></app-search> 
+       </td>
+       <td>
+        <app-search-by-price *ngIf="flag==='Price'"></app-search-by-price>
+       </td>
+    </tr>
+</table>

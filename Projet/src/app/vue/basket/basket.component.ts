@@ -49,7 +49,11 @@ export class BasketComponent implements OnInit {
     else
        this.router.navigateByUrl(`login`);
   }
- 
+  gotoproductListPage()
+  {
+    this.router.navigateByUrl(``);
+
+  }
   removeFromBasket(product: ClientProduct) {
     this.BasketService.deleteFrombasket(product);
     this.refresh();

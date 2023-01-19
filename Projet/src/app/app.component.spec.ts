@@ -7,7 +7,7 @@ import { User } from './model/user';
 import { OrderResultComponent } from './vue/order-result/order-result.component';
 import { OrderComponent } from './vue/order/order.component';
 import ProdJson from "../assets/MockProducts/products.json" ; 
-import { SearchComponent } from './vue/search/search.component';
+import { SearchComponent } from './vue/searchByName/searchByName.component';
 import { SearchResultService } from './services/searchresult.service';
 import { SearchResultComponent } from './vue/basket/search-result/search-result.component';
 

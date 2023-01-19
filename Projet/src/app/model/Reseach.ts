@@ -22,13 +22,19 @@ Products!:Product[];
     });
      return  Result;
   }    
-  getProductByCategory(category:string,Products:Product[]): Product[]
-  { this.category=category;
+  getProductByPriceSup(Price :number,Products:Product[]): Product[]
+  { 
      const Result = Products.filter((obj)=>{
-                        return  obj.categories===this.category;
+                        return  obj.realPrice>=Price;
                });
           return Result;  
   }
-
+  getProductByPriceInf(Price :number,Products:Product[]): Product[]
+  { 
+     const Result = Products.filter((obj)=>{
+                        return  obj.realPrice<=Price;
+               });
+          return Result;  
+  }
   
 }

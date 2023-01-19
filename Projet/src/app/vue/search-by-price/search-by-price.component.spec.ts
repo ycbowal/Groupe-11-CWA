@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateUserComponent } from './update-user.component';
+import { SearchByPriceComponent } from './search-by-price.component';
 
-describe('UpdateUserComponent', () => {
-  let component: UpdateUserComponent;
-  let fixture: ComponentFixture<UpdateUserComponent>;
+describe('SearchByPriceComponent', () => {
+  let component: SearchByPriceComponent;
+  let fixture: ComponentFixture<SearchByPriceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateUserComponent ]
+      declarations: [ SearchByPriceComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UpdateUserComponent);
+    fixture = TestBed.createComponent(SearchByPriceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

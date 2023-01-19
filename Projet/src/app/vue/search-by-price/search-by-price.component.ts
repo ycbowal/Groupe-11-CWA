@@ -5,16 +5,17 @@ import { research } from '../../model/Reseach';
 import { Product } from '../../model/product';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  selector: 'app-search-by-price',
+  templateUrl: './search-by-price.component.html',
+  styleUrls: ['./search-by-price.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchByPriceComponent implements OnInit {
+
   ProductsList!: Product[];
   ProductsListTemp!: Product[];
   Research!: research;
-  name!:string ;
-  flag: boolean = false;
+  Price!:any ;
+  flag:any="Sup";
   constructor(
     private globaVariables: GlobalVariablesService,
     private router: Router,
@@ -27,10 +28,10 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.Research = new research();
   }
-  getProductByName(): void {
-    if(this.name){
-    this.ProductsListTemp=this.Research.getProductByname(this.name, this.ProductsList);
-    this.searchResult.Products = this.Research.getProductByname(this.name,this.ProductsList);
+  getProductByPriceSup(): void {
+    if(this.Price){
+    this.ProductsListTemp=this.Research.Products;
+    this.searchResult.Products = this.Research.getProductByPriceSup(this.Price,this.ProductsList);
     if(this.searchResult.GetProducts.length>0)
        this.router.navigateByUrl('searchResult');
     else
@@ -38,7 +39,20 @@ export class SearchComponent implements OnInit {
     }else {
       this.router.navigateByUrl("searchResult");
     }
-    this.name="";
+    
   }
-  
+
+  getProductByPriceInf(): void {
+    if(this.Price){
+    this.ProductsListTemp=this.Research.Products;
+    this.searchResult.Products = this.Research.getProductByPriceInf(this.Price,this.ProductsList);
+    if(this.searchResult.GetProducts.length>0)
+       this.router.navigateByUrl('searchResult');
+    else
+      this.router.navigateByUrl("searchResult");
+    }else {
+      this.router.navigateByUrl("searchResult");
+    }
+    
+  }
 }

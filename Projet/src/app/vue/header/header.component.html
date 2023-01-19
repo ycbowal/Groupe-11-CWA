@@ -4,16 +4,16 @@
   </div>
   <nav>
     <ul class="menu-0">
-    <li  class="search"><app-search></app-search>
+    <li  class="search"><app-search-groupe></app-search-groupe>
       <li    
         class="other-menu i-menu-0"
         (mouseenter)="mouseEnter($event)"
         (mouseleave)="mouseLeave($event)">
-        <a routerLink="/toLogIn"
+        <a routerLink="/login"
           ><span [innerHTML]="myAccount"></span><span>Mon compte</span></a>
         <ul class="sub-menu sub-menu-0" *ngIf="mouseIsOverMyAccount">
           <li *ngIf="!isConnected">
-            <button routerLink="/toLogIn">Idenfiez-vous</button>
+            <button routerLink="/login">Idenfiez-vous</button>
           </li>
           <li *ngIf="isConnected" id="user-name">
             Bonjour, {{ lastName }} {{ firstName }}
@@ -29,7 +29,15 @@
         </ul>
       </li>
       <li class="other-menu i-menu-0">
-      <a routerLink="basket"><span></span><span>Panier</span></a>
+        <a routerLink="basket">
+          <span>
+            <div class="icon-cart" style="float: left">
+              <div class="cart-line-1" style="background-color: #E5E9EA"></div>
+              <div class="cart-line-2" style="background-color: #E5E9EA"></div>
+              <div class="cart-line-3" style="background-color: #E5E9EA"></div>
+              <div class="cart-wheel" style="background-color: #E5E9EA"></div>
+            </div>
+          </span></a>
       </li>
     </ul>
   </nav>

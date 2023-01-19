@@ -13,9 +13,7 @@ import { ClientProduct } from '../../model/client-product';
 })
 export class OrderComponent implements OnInit {
   angForm!:any;
-  
   BasketProducts!: BasketProduct[];
- 
   constructor(private router: Router,private BasketService: 
   BasketproductsService,private fb: FormBuilder){
     this.BasketService.getLBasketProducts().subscribe(
@@ -26,7 +24,6 @@ export class OrderComponent implements OnInit {
   ngOnInit(){}
   onOrder(){
   }
-
   createForm(){
     this.angForm = this.fb.group({
        name: ['', Validators.required ],
@@ -34,15 +31,12 @@ export class OrderComponent implements OnInit {
        postalcode:['', Validators.required,Validators.minLength(4),Validators.maxLength(4)],
        Address: ['', Validators.required ],
        town: ['', Validators.required ],
-       country: ['',Validators.required ]
-    });
-  }
-  
+       country: ['',Validators.required ]});}
+
   gotoOrderValidpage(){ 
     this.router.navigateByUrl('/componentresult');}
-
     removeDirectlyFromBasket(product: ClientProduct) {
       this.BasketService.deleteDirectlyFrombasket(product);
-       
     }
+
 }

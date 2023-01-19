@@ -4,3 +4,9 @@ button {
   cursor: pointer;
   font-weight: bold;
 } 
+
+ nav
+ { 
+  position: relative;
+  top: -4px; 
+ }

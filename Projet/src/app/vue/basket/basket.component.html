@@ -56,18 +56,29 @@
       </div>
     </div>
     <div class="cart-buttons">
-      <div class="continue-shopping">
-        <a routerLink="">Retour aux Achats</a>
-      </div>
+    
       <div
+      class="checkout-button button button-primary button-large"
+      (click)="gotoOrderpage()">
+      Valider({{ getTotal() | currency: 'EUR':true }})
+    </div>
+    
+      <div class="continue-shopping">
+        <div
         class="checkout-button button button-primary button-large"
-        (click)="gotoOrderpage()">
-        Valider({{ getTotal() | currency: 'EUR':true }})
+        (click)="gotoproductListPage()">
+          Retour Aux achats
       </div>
+    </div>
+      
     </div>
   </div>
   <div class="cart-page-content" *ngIf="BasketProducts.length == 0">
     <h4>Votre Panier est vide</h4>
-    <a routerLink="/">Retour aux Achats</a>
+    <div
+        class="checkout-button button button-primary button-large"
+        (click)="gotoproductListPage()">
+          Retour Aux achats
+      </div>
   </div>
 </div>
